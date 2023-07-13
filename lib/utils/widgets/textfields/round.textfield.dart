@@ -4,42 +4,49 @@ import 'package:simple_shadow/simple_shadow.dart';
 class RoundTextField extends StatelessWidget {
   static const Offset defaultShadowOffet = Offset(0, 0);
   static const BorderRadius defaultBorderRadius = BorderRadius.all(Radius.circular(10));
-  static const EdgeInsets defaultContentPadding = EdgeInsets.symmetric(horizontal: 20, vertical: 10);
+  static const EdgeInsets defaultContentPadding = EdgeInsets.symmetric(horizontal: 20);
+  static const EdgeInsets defaultContentMargin = EdgeInsets.only(bottom: 15);
 
   RoundTextField({
     super.key,
-    this.controller,
-    this.obscureText = false,
+    this.margin = defaultContentMargin,
+    this.height,
+    this.width,
     this.onChanged,
-    required this.margin,
     this.shadowColor,
     this.shadowOffset = defaultShadowOffet,
     this.shadowOpacity = 0.1,
     this.shadowSigma,
+    this.controller,
+    this.obscureText = false,
     required this.hintText,
-    this.contentPadding = defaultContentPadding,
     this.fillColor,
+    this.hintStyle,
     this.errorText,
-    this.borderRadius = defaultBorderRadius,
+    this.contentPadding = defaultContentPadding,
     this.enabledBorderSide,
     this.focusedBorderSide,
+    this.borderRadius = defaultBorderRadius,
     this.suffix,
     this.suffixIconColor,
     this.prefix,
     this.prefixIconColor,
   });
 
-  final TextEditingController? controller;
-  final bool obscureText;
-  final void Function(String)? onChanged;
   final EdgeInsetsGeometry? margin;
+  final double? height;
+  final double? width;
   final Color? shadowColor;
   final Offset shadowOffset;
   final double shadowOpacity;
   double? shadowSigma;
+  final TextEditingController? controller;
+  final bool obscureText;
+  final void Function(String)? onChanged;
   final String? hintText;
   final EdgeInsetsGeometry? contentPadding;
   Color? fillColor;
+  final TextStyle? hintStyle;
   final String? errorText;
   final BorderSide? enabledBorderSide;
   final BorderSide? focusedBorderSide;
@@ -58,6 +65,8 @@ class RoundTextField extends StatelessWidget {
 
     return Container(
       margin: margin,
+      height: height,
+      width: width,
       child: SimpleShadow(
         color: shadowColor ?? Theme.of(context).colorScheme.onBackground,
         offset: shadowOffset,
@@ -71,7 +80,7 @@ class RoundTextField extends StatelessWidget {
             hintText: hintText,
             contentPadding: contentPadding,
             fillColor: fillColor,
-            hintStyle: Theme.of(context).textTheme.bodyMedium,
+            hintStyle: hintStyle ?? Theme.of(context).textTheme.bodyMedium,
             errorText: errorText,
             filled: fillColor != null,
             errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,

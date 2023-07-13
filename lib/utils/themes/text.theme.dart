@@ -44,30 +44,25 @@ TextTheme textTheme = TextTheme(
   ),
 
   // body
-  bodyLarge: GoogleFonts.thasadith(
-    fontWeight: FontWeight.w600,
+  bodyLarge: GoogleFonts.poppins(
     height: 1,
   ),
-  bodyMedium: GoogleFonts.thasadith(
-    fontWeight: FontWeight.w600,
+  bodyMedium: GoogleFonts.poppins(
     height: 1,
   ),
-  bodySmall: GoogleFonts.thasadith(
+  bodySmall: GoogleFonts.poppins(
     fontWeight: FontWeight.w400,
     height: 1,
   ),
 
   // label
-  labelLarge: GoogleFonts.thasadith(
-    fontWeight: FontWeight.w600,
+  labelLarge: GoogleFonts.poppins(
     height: 1,
   ),
-  labelMedium: GoogleFonts.thasadith(
-    fontWeight: FontWeight.w600,
+  labelMedium: GoogleFonts.poppins(
     height: 1,
   ),
-  labelSmall: GoogleFonts.thasadith(
-    fontWeight: FontWeight.w600,
+  labelSmall: GoogleFonts.poppins(
     height: 1,
   ),
 );
