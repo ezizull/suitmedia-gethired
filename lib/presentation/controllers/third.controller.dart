@@ -44,8 +44,6 @@ class ThirdController extends Controller {
         perpage.value = users.value!.data.length;
       }
 
-      print("ThirdController :: loadMoreUser ${perpage.value}");
-
       update();
     } catch (error) {
       change(null, status: RxStatus.error("error loadMoreUser: $error"));
