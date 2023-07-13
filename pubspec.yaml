@@ -15,6 +15,7 @@ dependencies:
   get: 4.6.5
 
   # presentations
+  flutter_spinkit: 5.2.0
   responsive_framework: 1.1.0
   simple_shadow: 0.3.1
   google_fonts: 5.1.0

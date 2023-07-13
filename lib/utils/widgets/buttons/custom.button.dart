@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
+  final bool useConstrain;
+  final EdgeInsets? padding;
+  final EdgeInsets? margin;
+  final double? width;
+  final double height;
+  final Color? color;
+  final Gradient? gradient;
+  final BorderRadius? borderRadius;
+  final List<BoxShadow>? boxShadow;
+  final BoxBorder? border;
+  Color? splashColor;
+  final BorderRadius? inkwellBorderRadius;
+  final double elevation;
+  final IconData? icon;
+  final Color? iconColor;
+  final void Function()? onTap;
+  final AlignmentGeometry alignment;
+  final Widget? child;
+
   CustomButton({
-    super.key,
+    Key? key,
     this.useConstrain = false,
     this.padding,
     this.margin,
@@ -21,35 +40,12 @@ class CustomButton extends StatelessWidget {
     this.inkwellBorderRadius,
     this.alignment = Alignment.center,
     this.child,
-  });
-
-  final bool useConstrain;
-  final EdgeInsets? padding;
-  final EdgeInsets? margin;
-  final double? width;
-  final double? height;
-  final Color? color;
-  final Gradient? gradient;
-  final BorderRadius? borderRadius;
-  final List<BoxShadow>? boxShadow;
-  final BoxBorder? border;
-  Color? splashColor;
-  final BorderRadius? inkwellBorderRadius;
-  final double? elevation;
-  final IconData? icon;
-  final Color? iconColor;
-  final void Function()? onTap;
-  final AlignmentGeometry alignment;
-  final Widget? child;
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final lightTheme = Theme.of(context).brightness == Brightness.light;
-
     splashColor ??= Theme.of(context).colorScheme.onBackground.withOpacity(0.2);
-
-    if (useConstrain) return Content();
-    return UnconstrainedBox(child: Content());
+    return useConstrain ? Content() : UnconstrainedBox(child: Content());
   }
 
   Widget Content() {

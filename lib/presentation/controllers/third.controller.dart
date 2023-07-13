@@ -9,13 +9,26 @@ class ThirdController extends Controller {
   final SessionController session = Get.find();
 
   Rx<Pagination?> users = Rx<Pagination?>(null);
-  RxInt page = 0.obs;
+  RxInt page = 1.obs;
+  RxInt perpage = 10.obs;
 
   @override
   void onInit() async {
     super.onInit();
-    users.value = await userUseCase.getUsers({
-      'page': page.value,
-    });
+    loadMore();
+  }
+
+  void loadMore() async {
+    try {
+      change(null, status: RxStatus.loading());
+      users.value = await userUseCase.getUsers({
+        'page': page.value,
+        'perpage': perpage.value,
+      });
+      change(users.value, status: RxStatus.success());
+      update();
+    } catch (error) {
+      change(null, status: RxStatus.error("error loadMore: $error"));
+    }
   }
 }
