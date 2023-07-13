@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:gethired/presentation/controllers/controllers.dart';
+import 'package:gethired/presentation/routes/routes.dart';
 import 'package:gethired/utils/utils.dart';
 import 'widgets/topbar.dart';
 
@@ -13,8 +14,8 @@ class SecondPage extends GetView<SecondController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SecondController>(builder: (builderContext) {
-      final user = controller.session.user.value;
-      final userName = "${user?.firstName} ${user?.lastName}";
+      final chooseUser = controller.session.chooseUser.value;
+      final userName = "${chooseUser?.firstName} ${chooseUser?.lastName}";
 
       return Scaffold(
         backgroundColor: Colors.white,
@@ -47,7 +48,7 @@ class SecondPage extends GetView<SecondController> {
             Container(
               alignment: Alignment.center,
               child: Text(
-                "Selected ${user != null ? userName : "User Name"}",
+                "Selected ${chooseUser != null ? userName : "User Name"}",
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
@@ -58,7 +59,7 @@ class SecondPage extends GetView<SecondController> {
               child: CustomButton(
                 height: 41,
                 width: context.width - 60,
-                onTap: () {},
+                onTap: () => Get.toNamed(Routes.THIRD),
                 margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                 borderRadius: BorderRadius.circular(12),
                 color: Theme.of(context).colorScheme.primary,

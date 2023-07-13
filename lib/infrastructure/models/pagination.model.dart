@@ -18,25 +18,25 @@ class Pagination {
     required this.support,
   });
 
-  factory Pagination.fromJson(Map<String, dynamic> json) {
+  factory Pagination.fromMap(Map<String, dynamic> json) {
     return Pagination(
       page: json["page"],
       perPage: json["per_page"],
       total: json["total"],
       totalPages: json["total_pages"],
-      data: List<User>.from(json["data"].map((x) => User.fromJson(x))),
-      support: Support.fromJson(json["support"]),
+      data: List<User>.from(json["data"].map((x) => User.fromMap(x))),
+      support: Support.fromMap(json["support"]),
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {
       "page": page,
       "per_page": perPage,
       "total": total,
       "total_pages": totalPages,
-      "data": List<dynamic>.from(data.map((x) => x.toJson())),
-      "support": support.toJson(),
+      "data": List<dynamic>.from(data.map((x) => x.toMap())),
+      "support": support.toMap(),
     };
   }
 }

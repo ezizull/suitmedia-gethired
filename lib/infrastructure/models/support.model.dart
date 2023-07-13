@@ -7,14 +7,14 @@ class Support {
     required this.text,
   });
 
-  factory Support.fromJson(Map<String, dynamic> json) {
+  factory Support.fromMap(Map<String, dynamic> json) {
     return Support(
       url: json["url"],
       text: json["text"],
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {
       "url": url,
       "text": text,

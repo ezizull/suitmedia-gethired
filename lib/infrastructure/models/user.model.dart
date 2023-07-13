@@ -13,7 +13,7 @@ class User {
     required this.avatar,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
+  factory User.fromMap(Map<String, dynamic> json) {
     return User(
       id: json["id"],
       email: json["email"],
@@ -23,7 +23,7 @@ class User {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {
       "id": id,
       "email": email,
