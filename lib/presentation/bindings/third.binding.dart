@@ -7,7 +7,7 @@ import 'package:gethired/presentation/controllers/controllers.dart';
 class ThirdBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => ThirdController());
     Get.lazyPut(() => UserUseCase(userRepo: UserRepo()));
+    Get.put(ThirdController(), permanent: true);
   }
 }
