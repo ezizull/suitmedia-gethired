@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:gethired/presentation/controllers/controllers.dart';
+import 'package:gethired/presentation/routes/routes.dart';
 import 'package:gethired/utils/utils.dart';
 
 class FirstPage extends GetView<FirstController> {
@@ -42,8 +43,13 @@ class FirstPage extends GetView<FirstController> {
                   RoundTextField(
                     hintText: "Name",
                     height: 40,
+                    controller: controller.nameControl,
                     width: context.width - 60,
                     borderRadius: BorderRadius.circular(12),
+                    onChanged: (value) {
+                      controller.session.name.value = value;
+                      controller.session.update();
+                    },
                     hintStyle: TextStyle(
                       color: Theme.of(context).colorScheme.onBackground.withOpacity(0.4),
                       fontFamily: Theme.of(context).textTheme.bodySmall!.fontFamily,
@@ -54,6 +60,7 @@ class FirstPage extends GetView<FirstController> {
                   RoundTextField(
                     hintText: "Palindrome",
                     height: 40,
+                    controller: controller.dromControl,
                     width: context.width - 60,
                     borderRadius: BorderRadius.circular(12),
                     margin: const EdgeInsets.only(bottom: 45),
@@ -66,7 +73,29 @@ class FirstPage extends GetView<FirstController> {
                   ),
                   CustomButton(
                     height: 41,
-                    onTap: () {},
+                    onTap: () {
+                      if (isPalindrome(controller.dromControl.value.text)) {
+                        Get.defaultDialog(
+                          title: '',
+                          titlePadding: EdgeInsets.zero,
+                          content: Text(
+                            'isPalindrome',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          contentPadding: const EdgeInsets.only(bottom: 5),
+                        );
+                      } else if (!isPalindrome(controller.dromControl.value.text)) {
+                        Get.defaultDialog(
+                          title: '',
+                          titlePadding: EdgeInsets.zero,
+                          content: Text(
+                            'not palindrome',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          contentPadding: const EdgeInsets.only(bottom: 5),
+                        );
+                      }
+                    },
                     width: context.width - 60,
                     margin: const EdgeInsets.only(bottom: 15),
                     borderRadius: BorderRadius.circular(12),
@@ -83,7 +112,7 @@ class FirstPage extends GetView<FirstController> {
                   ),
                   CustomButton(
                     height: 41,
-                    onTap: () {},
+                    onTap: () => Get.toNamed(Routes.SECOND),
                     width: context.width - 60,
                     borderRadius: BorderRadius.circular(12),
                     color: Theme.of(context).colorScheme.primary,

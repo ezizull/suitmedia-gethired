@@ -13,6 +13,7 @@ class RoundTextField extends StatelessWidget {
     this.height,
     this.width,
     this.onChanged,
+    this.style,
     this.shadowColor,
     this.shadowOffset = defaultShadowOffet,
     this.shadowOpacity = 0.1,
@@ -43,6 +44,7 @@ class RoundTextField extends StatelessWidget {
   final TextEditingController? controller;
   final bool obscureText;
   final void Function(String)? onChanged;
+  final TextStyle? style;
   final String? hintText;
   final EdgeInsetsGeometry? contentPadding;
   Color? fillColor;
@@ -76,6 +78,7 @@ class RoundTextField extends StatelessWidget {
           controller: controller,
           obscureText: obscureText,
           onChanged: onChanged,
+          style: style ?? Theme.of(context).textTheme.bodySmall,
           decoration: InputDecoration(
             hintText: hintText,
             contentPadding: contentPadding,
