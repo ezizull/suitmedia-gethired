@@ -16,17 +16,21 @@ class ThirdPage extends GetView<ThirdController> {
 
       return Scaffold(
         backgroundColor: Colors.white,
-        appBar: const TopBar(),
+        appBar: TopBar(controller: controller),
         body: ListView.builder(
           itemCount: users?.data.length,
-          padding: const EdgeInsets.only(top: 15, left: 20, right: 20),
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
           itemBuilder: (context, index) {
             final user = users?.data[index];
+            final userName = "${user?.firstName} ${user?.lastName}";
 
             return CustomButton(
               useConstrain: true,
-              onTap: () {},
+              onTap: () {
+                controller.session.chooseUser.value = user;
+                controller.session.update();
+              },
               height: 80,
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 18),
               border: Border(
@@ -35,15 +39,9 @@ class ThirdPage extends GetView<ThirdController> {
                   width: 0.2,
                 ),
               ),
-              child: Row(children: [
+              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 if (user == null) ...[
-                  Container(
-                    height: 50,
-                    width: 50,
-                    clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
+                  SizedBox(
                     child: SpinKitRing(
                       color: Theme.of(context).colorScheme.onBackground,
                       lineWidth: 1,
@@ -53,11 +51,23 @@ class ThirdPage extends GetView<ThirdController> {
                   Container(
                     height: 50,
                     width: 50,
+                    margin: const EdgeInsets.only(right: 20),
                     clipBehavior: Clip.hardEdge,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                     ),
                     child: Image.network(user.avatar, fit: BoxFit.cover),
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(userName, style: Theme.of(context).textTheme.titleSmall),
+                        const SizedBox(height: 5),
+                        Text(user.email, style: Theme.of(context).textTheme.bodySmall),
+                      ],
+                    ),
                   ),
                 ],
               ]),

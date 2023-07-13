@@ -7,7 +7,7 @@ class UserUseCase {
   UserUseCase({required this.userRepo});
 
   Future<Pagination> getUsers(Map map) async {
-    final result = await userRepo.paginUser(map);
+    final result = await userRepo.userResponse(map);
     return Pagination.fromMap(result);
   }
 }

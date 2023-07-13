@@ -1,8 +1,12 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
+import 'package:gethired/presentation/controllers/controllers.dart';
+
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
-  const TopBar({super.key});
+  const TopBar({super.key, required this.controller});
+
+  final ThirdController controller;
 
   @override
   PreferredSizeWidget build(BuildContext context) {
