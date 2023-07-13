@@ -30,7 +30,6 @@ class ThirdController extends Controller {
 
   void loadMoreUser() async {
     final lastLength = users.value?.data.length;
-    print("ThirdController:: loadMoreUser $lastLength");
 
     try {
       change(null, status: RxStatus.loading());
