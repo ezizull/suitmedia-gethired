@@ -3,42 +3,42 @@ import 'package:google_fonts/google_fonts.dart';
 
 TextTheme textTheme = TextTheme(
   // display
-  displayLarge: GoogleFonts.robotoFlex(
+  displayLarge: GoogleFonts.poppins(
     fontWeight: FontWeight.w800,
     height: 1,
   ),
-  displayMedium: GoogleFonts.robotoFlex(
+  displayMedium: GoogleFonts.poppins(
     height: 1,
   ),
-  displaySmall: GoogleFonts.robotoFlex(
+  displaySmall: GoogleFonts.poppins(
     height: 1,
   ),
 
   // headline
-  headlineLarge: GoogleFonts.robotoFlex(
+  headlineLarge: GoogleFonts.poppins(
     fontWeight: FontWeight.w800,
     height: 1.2,
   ),
-  headlineMedium: GoogleFonts.robotoFlex(
+  headlineMedium: GoogleFonts.poppins(
     fontWeight: FontWeight.w800,
     height: 1,
   ),
-  headlineSmall: GoogleFonts.robotoFlex(
+  headlineSmall: GoogleFonts.poppins(
     fontWeight: FontWeight.w600,
     height: 1,
   ),
 
   // title
-  titleLarge: GoogleFonts.robotoFlex(
+  titleLarge: GoogleFonts.poppins(
     fontSize: 20,
     fontWeight: FontWeight.w800,
     height: 1,
   ),
-  titleMedium: GoogleFonts.robotoFlex(
+  titleMedium: GoogleFonts.poppins(
     fontWeight: FontWeight.w800,
     height: 1,
   ),
-  titleSmall: GoogleFonts.robotoFlex(
+  titleSmall: GoogleFonts.poppins(
     fontWeight: FontWeight.w800,
     height: 1,
   ),

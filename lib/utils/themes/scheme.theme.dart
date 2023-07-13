@@ -3,24 +3,24 @@ import 'package:flutter/material.dart';
 
 class AppSchemeColor {
   static const FlexSchemeColor light = FlexSchemeColor(
-    primary: Color(0xff2A5188),
-    primaryContainer: Color(0xff9cc5ff),
-    secondary: Color(0xff0C1B2F),
-    secondaryContainer: Color(0xfffff8Ed),
-    tertiary: Color(0xffA6CDCA),
-    tertiaryContainer: Color(0xffedfffe),
+    primary: Color(0xff2B637B),
+    primaryContainer: Color(0xffe3f7ff),
+    secondary: Color(0xff554AF0),
+    secondaryContainer: Color(0xffdbd9ff),
+    tertiary: Color(0xff86b5a8),
+    tertiaryContainer: Color(0xffe4fff7),
     error: Color(0xffe95345),
     errorContainer: Color(0xfffaceca),
     swapOnMaterial3: true,
   );
 
   static const FlexSchemeColor dark = FlexSchemeColor(
-    primary: Color(0xff2A5188),
-    primaryContainer: Color(0xff9cc5ff),
-    secondary: Color(0xff0C1B2F),
-    secondaryContainer: Color(0xfffff8Ed),
-    tertiary: Color(0xffedfffe),
-    tertiaryContainer: Color(0xffA6CDCA),
+    primary: Color(0xff2B637B),
+    primaryContainer: Color(0xffe3f7ff),
+    secondary: Color(0xff554AF0),
+    secondaryContainer: Color(0xffdbd9ff),
+    tertiary: Color(0xffe4fff7),
+    tertiaryContainer: Color(0xff86b5a8),
     error: Color(0xfffaceca),
     errorContainer: Color(0xffe95345),
     swapOnMaterial3: true,

@@ -40,7 +40,7 @@ class AppThemes {
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     useMaterial3: true,
     swapLegacyOnMaterial3: false,
-    fontFamily: GoogleFonts.robotoFlex().fontFamily,
+    fontFamily: GoogleFonts.poppins().fontFamily,
     textTheme: textTheme,
   );
 
@@ -81,7 +81,7 @@ class AppThemes {
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     useMaterial3: true,
     swapLegacyOnMaterial3: false,
-    fontFamily: GoogleFonts.robotoFlex().fontFamily,
+    fontFamily: GoogleFonts.poppins().fontFamily,
     textTheme: textTheme,
   );
 }
