@@ -22,13 +22,16 @@ class ThirdController extends Controller {
 
     scrollControl.addListener(() {
       if (scrollControl.position.pixels == scrollControl.position.maxScrollExtent) {
-        perpage.value *= 2;
+        perpage.value += 10;
         loadMoreUser();
       }
     });
   }
 
   void loadMoreUser() async {
+    final lastLength = users.value?.data.length;
+    print("ThirdController:: loadMoreUser $lastLength");
+
     try {
       change(null, status: RxStatus.loading());
       users.value = await userUseCase.getUsers({
@@ -36,6 +39,13 @@ class ThirdController extends Controller {
         'perpage': perpage.value,
       });
       change(users.value, status: RxStatus.success());
+
+      if (users.value!.data.length == lastLength) {
+        perpage.value = users.value!.data.length;
+      }
+
+      print("ThirdController :: loadMoreUser ${perpage.value}");
+
       update();
     } catch (error) {
       change(null, status: RxStatus.error("error loadMoreUser: $error"));
