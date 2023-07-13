@@ -1,0 +1,10 @@
+{
+  "search.exclude": {
+    "**/.fvm": true
+  },
+  // Remove from file watching
+  "files.watcherExclude": {
+    "**/.fvm": true
+  },
+  "dart.flutterSdkPath": "/home/ezizull/fvm/versions/3.10.4/"
+}
